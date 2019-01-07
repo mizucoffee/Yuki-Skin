@@ -1,2 +1,3 @@
 # Yuki-Skin
-"Yuki" Skin for Yuntan
+
+The default skin of Yuntan
