@@ -1,0 +1,24 @@
+[skin]
+name = "Yuki Skin"
+description = "The default skin of Yuntan"
+author = "Mizucoffee"
+version = "1.0.0"
+entry = "top-menu"
+
+[player]
+script = "scripts/player"
+
+[[scene]]
+name = "top-menu"
+type = "free"
+script = "scripts/topmenu"
+
+# [[scene]]
+# name = "settings"
+# type = "free"
+# script = "scripts/settings"
+
+# [[scene]]
+# name = "main-menu"
+# type = "select"
+# script = "scripts/main-menu"
