@@ -7,8 +7,8 @@
 let camera
 
 // 描画開始前に呼ばれる
-module.exports.onStart = (scene) => {
-  console.log('start')
+module.exports.onStart = (scene,changeScene) => {
+
   camera = new BABYLON.ArcRotateCamera("Camera", 0, Math.PI /3 , 10, new BABYLON.Vector3.Zero(), scene);
 
   new BABYLON.HemisphericLight(
@@ -33,12 +33,15 @@ module.exports.onStart = (scene) => {
 }
 
 let alpha = 0
+let trans = ''
 
 // 描画更新時呼ばれる
 module.exports.onTick = (scene) => {
   alpha += 0.01
   if (alpha >= Math.Pi) alpha = -Math.PI
   camera.alpha = alpha
+
+  return trans
 }
 
 // キープレス時に呼ばれる

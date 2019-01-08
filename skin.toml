@@ -3,10 +3,15 @@ name = "Yuki Skin"
 description = "The default skin of Yuntan"
 author = "Mizucoffee"
 version = "1.0.0"
-entry = "top-menu"
+entry = "splash"
 
 [player]
 script = "scripts/player"
+
+[[scene]]
+name = "splash"
+type = "free"
+script = "scripts/splash"
 
 [[scene]]
 name = "top-menu"
