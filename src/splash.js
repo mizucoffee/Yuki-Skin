@@ -5,6 +5,7 @@
 //                  Mizucoffee
 
 const path = require("path");
+const GUI = require("babylonjs-gui");
 
 let trans = "";
 let flag = false;
@@ -13,37 +14,19 @@ let flag = false;
 module.exports.onStart = (scene, gui) => {
   scene.clearColor = BABYLON.Color3.White();
 
-  new BABYLON.ArcRotateCamera(
-    "Camera",
-    -Math.PI / 2,
-    0,
-    10,
-    BABYLON.Vector3.Zero(),
-    scene
-  );
+  new BABYLON.UniversalCamera("camera", BABYLON.Vector3.Zero(), scene);
 
-  var light = new BABYLON.HemisphericLight(
-    "hemiLight",
-    new BABYLON.Vector3(-1, 1, 0),
-    scene
-  );
-  light.specular = new BABYLON.Color3(0, 0, 0);
-
-  var ground = BABYLON.Mesh.CreateGround("ground1", 10, 10, 2, scene);
-
-  var logo = new BABYLON.StandardMaterial("logo", scene);
-  logo.emissiveColor = new BABYLON.Color3(1, 1, 1);
-  logo.diffuseTexture = new BABYLON.Texture(
-    path.join(__dirname, "../images/yuntan_logo.png"),
-    scene
-  );
-
-  ground.material = logo;
+  const logo = new GUI.Image("img", path.join(__dirname, "../images/yuntan_logo.png"));
+  logo.width = 1;
+  logo.height = 1;
+  logo.stretch = GUI.Image.STRETCH_UNIFORM;
+  gui.addControl(logo);
 
   const loop = () => {
     if (flag) {
       logo.alpha -= 0.03;
       if (logo.alpha > 0) return setTimeout(loop, 10);
+      logo.alpha = 0;
       setTimeout(() => (trans = "top-menu"), 500);
     } else setTimeout(loop, 10);
   };
@@ -62,4 +45,4 @@ module.exports.onKeyDown = keyCode => {
 };
 
 // 描画終了時に呼ばれる
-module.exports.onFinished = () => {};
+module.exports.onFinished = () => { };

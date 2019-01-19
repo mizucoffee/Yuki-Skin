@@ -1,55 +1,60 @@
 // =============================
 //   Yuki-Skin
-//        scripts/top-menu.js
+//        scripts/topmenu.js
 // =============================
 //                  Mizucoffee
 
-let camera
+const path = require("path");
+const GUI = require("babylonjs-gui");
+
+let trans = "";
+let flag = false;
 
 // 描画開始前に呼ばれる
-module.exports.onStart = (scene,changeScene) => {
+module.exports.onStart = (scene, gui) => {
+  scene.clearColor = BABYLON.Color3.White();
 
-  camera = new BABYLON.ArcRotateCamera("Camera", 0, Math.PI /3 , 10, new BABYLON.Vector3.Zero(), scene);
+  new BABYLON.UniversalCamera("camera", BABYLON.Vector3.Zero(), scene);
 
-  new BABYLON.HemisphericLight(
-    'light1',
-    new BABYLON.Vector3(0, 1, 0),
-    scene
-  )
+  const logo = new GUI.Image("img", path.join(__dirname, "../images/yuntan_logo.png"));
+  logo.width = 0.7;
+  logo.height = 0.7;
+  logo.top = "-20%"
+  logo.stretch = GUI.Image.STRETCH_UNIFORM;
+  gui.addControl(logo);
 
-  const sphere = BABYLON.MeshBuilder.CreateSphere(
-    'sphere',
-    { segments: 16, diameter: 2 },
-    scene
-  )
+  var text1 = new GUI.TextBlock();
+  text1.text = "Start";
+  text1.color = "black";
+  text1.fontSize = "4%";
+  text1.top = "10%"
+  gui.addControl(text1);
 
-  sphere.position.y = 1
+  var text2 = new GUI.TextBlock();
+  text2.text = "Settings";
+  text2.color = "black";
+  text2.fontSize = "4%";
+  text2.top = "20%"
+  gui.addControl(text2);
 
-  BABYLON.MeshBuilder.CreateGround(
-    'ground1',
-    { height: 6, width: 6, subdivisions: 2 },
-    scene
-  )
-}
+  var text3 = new GUI.TextBlock();
+  text3.text = "Exit";
+  text3.color = "black";
+  text3.fontSize = '4%';
+  text3.top = "30%"
+  gui.addControl(text3);
 
-let alpha = 0
-let trans = ''
+};
 
 // 描画更新時呼ばれる
-module.exports.onTick = (scene) => {
-  alpha += 0.01
-  if (alpha >= Math.Pi) alpha = -Math.PI
-  camera.alpha = alpha
-
-  return trans
-}
+module.exports.onTick = scene => {
+  return trans;
+};
 
 // キープレス時に呼ばれる
-module.exports.onKeyDown = () => {
-  console.log("onKeyDown")
-}
+module.exports.onKeyDown = keyCode => {
+  if (keyCode === 13 || keyCode == 32) flag = true;
+};
 
 // 描画終了時に呼ばれる
-module.exports.onFinished = () => {
-  console.log("onFinished")
-}
+module.exports.onFinished = () => { };

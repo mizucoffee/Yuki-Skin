@@ -274,6 +274,18 @@ atob@^2.1.1:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
+babylonjs-gui@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/babylonjs-gui/-/babylonjs-gui-3.3.0.tgz#373328616cbe467cc9b0b99a3b3cd1318f90c921"
+  integrity sha512-tG5efQOgkDFj9mo1nnwzzSXuHBLxMKc/VZ1B/eGzIsSvdMUxhdEVRNiq4ves1jI4wX59Fdl4vwwra/v01XIMSg==
+  dependencies:
+    babylonjs "3.3.0"
+
+babylonjs@3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/babylonjs/-/babylonjs-3.3.0.tgz#f7636c3761cc3260dac8adf26767bc6323e74181"
+  integrity sha512-3Gn9kAEPejJN4+HMKGAKbhsCsrysvaORqi07Bdr9Xmy3KRt/BxyGwepzfcqFIe8+94SWszPDeJC9peICfHdCKw==
+
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
