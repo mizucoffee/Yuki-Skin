@@ -1,0 +1,13 @@
+{
+  "name": "yuki-skin",
+  "version": "0.0.1",
+  "description": "The default skin of Yuntan",
+  "main": "index.js",
+  "repository": "https://github.com/mizucoffee/yuki-skin.git",
+  "author": "Ritsuki Goto <develop@mizucoffee.net>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "webpack": "^4.28.4"
+  }
+}
